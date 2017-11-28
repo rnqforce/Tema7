@@ -1,26 +1,27 @@
 #include<iostream>
 
 using namespace std;
-
-void minmax(int a[10],int *min, int *max)
+int *mn,*mx;
+void minmax(int a[],int *min, int *max)
 {
-    *min=10000;
-    *max=-1;
+    mn=&a[0];
+    mx=&a[0];
 
     for(int i=0;i<10;i++)
         {
-        if(a[i]<*min)
-            min=&a[i];
-        if(a[i]>*max)
-            max=&a[i];
+        if(a[i]<*mn)
+            mn=&a[i];
+
+        if(a[i]>*mx)
+            mx=&a[i];
             }
 }
 int main()
 {
-    int a[15],*min,*max,n;
+    int a[100],n;
     cin>>n;
     for(int i=0;i<n;i++)
         cin>>a[i];
-    minmax(a,min,max);
-    cout<<*min<<" "<<*max;
+    minmax(a,mn,mx);
+    cout<<*mn<<" "<<*mx;
 }
