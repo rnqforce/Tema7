@@ -4,23 +4,22 @@ using namespace std;
 
 int find_largest(int *a,int n)
 {
-    int mx;
-    mx=-1;
-    while(a!=a+3)
+     int *mx = &a[0];
+    for(int i = 0 ; i < n ; i++)
     {
-        if(mx<*a)
-            mx=*a;
-            a++;
+        if(*mx < *(a+i))
+            *mx = *(a+i);
     }
-    return mx;
+    return *mx;
 }
 int main()
 {
-    int *p;
-    int b[23]={1,23,1};
-    p=b;
+    int n = 3;
+    int b[100];
 
+    for(int i = 0 ; i < n ; i++)
+        cin>>b[i];
 
-    cout<<find_largest(p,3);
+    cout<<find_largest(b,n);
 
 }
